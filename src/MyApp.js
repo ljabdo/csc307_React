@@ -21,13 +21,12 @@ function MyApp() {
   });
 }
 
-
 async function removeOneCharacter (index) {
   const updated = characters.filter((character, i) => {
       return i !== index
     });
     setCharacters(updated);
-    let id = characters[index].id; 
+    let id = characters[index]._id;
     try {
       const response = await axios.delete(`http://localhost:5000/users/` + id);
       return response.data.users_list;   
